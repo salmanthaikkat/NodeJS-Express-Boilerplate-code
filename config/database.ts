@@ -1,10 +1,17 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
+
+const uri = `mongodb+srv://${process.env.DATABASE_USER_USERNAME}:${process.env.DATABASE_USER_PASSWORD}@cluster0.hia64.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 
 export const connectDB = async () => {
-  await mongoose.connect("http://localhost:8000", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-    useCreateIndex: true,
-  });
+  try {
+    const connection = await mongoose.connect(uri, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false,
+      useCreateIndex: true,
+    });
+    return connection;
+  } catch (e) {
+    console.log('error', e);
+  }
 };
