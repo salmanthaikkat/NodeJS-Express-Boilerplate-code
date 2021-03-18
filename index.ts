@@ -17,7 +17,8 @@ app.use(middlewares.logger);
 
 app.get('/', middlewares.validateToken ,(req, res) => res.send('Express + TypeScript Server'));
 
-app.use('/admin', routes.AdminRoutes);
+app.use('/v1/admin', routes.AdminRoutes);
+app.use('/v1/api/product-category', routes.ProductCategoryRoutes);
 
 app.listen(PORT, () => {
   console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`);
