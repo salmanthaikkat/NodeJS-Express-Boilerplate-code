@@ -1,3 +1,4 @@
 import AdminRoutes from './dashboardAdmin';
+import StudentRoutes from './students';
 
-export default { AdminRoutes };
+export default { AdminRoutes, StudentRoutes };

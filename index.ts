@@ -19,6 +19,8 @@ app.get('/', middlewares.validateToken ,(req, res) => res.send('Express + TypeSc
 
 app.use('/admin', routes.AdminRoutes);
 
+app.use('/v1/api/students',routes.StudentRoutes);
+
 app.listen(PORT, () => {
   console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`);
 });
